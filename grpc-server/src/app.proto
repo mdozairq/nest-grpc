@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package app;
+
+service AppController {
+  rpc Accumulate (NumberArray) returns (SumOfNumberArray);
+  rpc GetUserById (Id) returns (UserResponse);
+}
+
+message NumberArray {
+  repeated double data = 1;
+}
+
+message SumOfNumberArray {
+  double sum = 1;
+}
+
+message Id {
+  string id = 1;
+}
+
+message UserResponse {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    int32 phone = 4;
+}
+
+
+message NoArgs{}
